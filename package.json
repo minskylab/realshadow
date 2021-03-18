@@ -1,5 +1,5 @@
 {
-    "name": "real-shadow",
+    "name": "@minskylab/realshadow",
     "version": "0.1.0",
     "description": "A simple library to give shadows based on the current real time for any html element.",
     "main": "dist/index.js",
@@ -19,6 +19,10 @@
         "box-shadow",
         "text-shadow"
     ],
+    "np": {
+        "yarn": true,
+        "contents": "dist"
+    },
     "scripts": {
         "build:css": "sass index.scss:dist/index.css",
         "build:js": "ncc build index.ts -o dist",

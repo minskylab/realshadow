@@ -3,16 +3,24 @@ import {
     dataFromHourName,
     dataToHourName,
     dataDistanceName,
+    dataColorName,
+    //
     defaultStringPhi,
     defaultStringFromHour,
     defaultStringToHour,
+    defaultStringColor,
 } from "./datanames";
+
+import "./realshadow.css";
+
+const REAL_SHADOW_CLASS_NAME = "real-shadow";
 
 interface ShadowProps {
     phi: number;
     fromHour: number;
     toHour: number;
     distance: number;
+    color: string;
 }
 
 const constraintHour = (hn: number, x0: number, x1: number): number => {
@@ -40,11 +48,17 @@ const applyShadow = (date: Date, el: HTMLElement, props: ShadowProps) => {
 
     el.style.setProperty("--shadow-dx", Math.floor(dx).toString() + "px");
     el.style.setProperty("--shadow-dy", Math.floor(dy).toString() + "px");
+
+    el.style.setProperty("--shadow-blur", "0");
+    el.style.setProperty("--shadow-color", props.color);
+
+    console.log(dx, dy);
+
+    // el.style.boxShadow = "";
 };
 
 const calculateShadows = (date: Date) => {
-    const className = "real-shadow";
-    const elements = document.getElementsByClassName(className);
+    const elements = document.getElementsByClassName(REAL_SHADOW_CLASS_NAME);
 
     // 0 - 00:00, 1 - 23:59
 
@@ -55,17 +69,18 @@ const calculateShadows = (date: Date) => {
         const fromHour: number = Number(el.getAttribute(dataFromHourName) || defaultStringFromHour);
         const toHour: number = Number(el.getAttribute(dataToHourName) || defaultStringToHour);
         const distance: number = Number(el.getAttribute(dataDistanceName) || defaultStringToHour);
+        const color: string = el.getAttribute(dataColorName) || defaultStringColor;
 
-        const props: ShadowProps = { phi, fromHour, toHour, distance };
+        const props: ShadowProps = { phi, fromHour, toHour, distance, color };
 
         applyShadow(date, el, props);
         // const k = el.dataset.key;
     }
 };
 
-const dayTicker = () => {
+const dayTicker = (intervalSeconds: number) => {
     setTimeout(() => {
         calculateShadows(new Date());
-        dayTicker();
-    }, 5000);
+        dayTicker(intervalSeconds);
+    }, intervalSeconds);
 };

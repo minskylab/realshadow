@@ -1,10 +1,33 @@
 {
+    "name": "real-shadow",
+    "version": "0.1.0",
+    "description": "A simple library to give shadows based on the current real time for any html element.",
+    "main": "dist/index.js",
+    "author": "Minsky",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/minskylab/realshadow.git"
+    },
+    "bugs": {
+        "url": "https://github.com/minskylab/realshadow/issues"
+    },
+    "homepage": "https://github.com/minskylab/realshadow",
+    "keywords": [
+        "shadow",
+        "real life",
+        "box-shadow",
+        "text-shadow"
+    ],
     "scripts": {
-        "build": "ncc build index.ts -o dist",
+        "build:css": "sass index.scss:dist/index.css",
+        "build:js": "ncc build index.ts -o dist",
+        "build": "yarn build:css && yarn build:js",
         "start": "ncc run index.ts"
     },
     "devDependencies": {
         "@vercel/ncc": "^0.27.0",
+        "sass": "^1.32.8",
         "typescript": "^4.2.3"
     }
 }

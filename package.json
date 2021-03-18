@@ -1,0 +1,10 @@
+{
+    "scripts": {
+        "build": "ncc build index.ts -o dist",
+        "start": "ncc run index.ts"
+    },
+    "devDependencies": {
+        "@vercel/ncc": "^0.27.0",
+        "typescript": "^4.2.3"
+    }
+}

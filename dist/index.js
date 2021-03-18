@@ -1,11 +1,22 @@
 module.exports =
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
+
+/***/ 446:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.REAL_SHADOW_CLASS_NAME = void 0;
+exports.REAL_SHADOW_CLASS_NAME = "real-shadow";
+
+
+/***/ }),
 
 /***/ 588:
 /***/ ((__unused_webpack_module, exports) => {
 
-"use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultStringColor = exports.defaultStringToHour = exports.defaultStringFromHour = exports.defaultStringPhi = exports.dataColorName = exports.dataDistanceName = exports.dataToHourName = exports.dataFromHourName = exports.dataPhiName = void 0;
@@ -25,12 +36,24 @@ exports.defaultStringColor = "black";
 /***/ 177:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-"use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+var shadows_1 = __nccwpck_require__(861);
+document.onload = function (e) {
+    shadows_1.dayTicker(1000);
+};
+
+
+/***/ }),
+
+/***/ 861:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.dayTicker = void 0;
+var consts_1 = __nccwpck_require__(446);
 var datanames_1 = __nccwpck_require__(588);
-__nccwpck_require__(687);
-var REAL_SHADOW_CLASS_NAME = "real-shadow";
 var constraintHour = function (hn, x0, x1) {
     if (hn < x0) {
         return x0;
@@ -55,7 +78,7 @@ var applyShadow = function (date, el, props) {
     // el.style.boxShadow = "";
 };
 var calculateShadows = function (date) {
-    var elements = document.getElementsByClassName(REAL_SHADOW_CLASS_NAME);
+    var elements = document.getElementsByClassName(consts_1.REAL_SHADOW_CLASS_NAME);
     // 0 - 00:00, 1 - 23:59
     for (var i = 0; i < elements.length; i++) {
         var el = elements[i];
@@ -72,17 +95,10 @@ var calculateShadows = function (date) {
 var dayTicker = function (intervalSeconds) {
     setTimeout(function () {
         calculateShadows(new Date());
-        dayTicker(intervalSeconds);
+        exports.dayTicker(intervalSeconds);
     }, intervalSeconds);
 };
-
-
-/***/ }),
-
-/***/ 687:
-/***/ ((module) => {
-
-module.exports = eval("require")("./realshadow.css");
+exports.dayTicker = dayTicker;
 
 
 /***/ })

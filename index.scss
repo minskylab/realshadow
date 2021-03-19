@@ -1,6 +1,0 @@
-:root {
-    .real-shadow {
-        box-shadow: var(--shadow-dx) var(--shadow-dy) var(--shadow-blur) var(--shadow-color);
-        transition: box-shadow text-shadow 0.75s;
-    }
-}

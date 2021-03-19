@@ -24,13 +24,15 @@
         "contents": "dist"
     },
     "scripts": {
-        "build:css": "sass index.scss:dist/index.css",
         "build:js": "ncc build index.ts -o dist",
-        "build": "yarn build:css && yarn build:js",
+        "build:node": "yarn build:js",
+        "build:browser": "browserify dist/index.js -o dist/index.js",
+        "build": "yarn build:node && yarn build:browser",
         "start": "ncc run index.ts"
     },
     "devDependencies": {
         "@vercel/ncc": "^0.27.0",
+        "browserify": "^17.0.0",
         "sass": "^1.32.8",
         "typescript": "^4.2.3"
     }

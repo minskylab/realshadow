@@ -5,4 +5,7 @@ export interface ShadowProps {
     distance: number;
     blurRadius: number;
     color: string;
+    kind: ShadowKind;
 }
+
+export type ShadowKind = "text" | "box" | "both";

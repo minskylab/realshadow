@@ -1,5 +1,5 @@
-import { dayTicker } from "./shadows";
+import { startTicker } from "./shadows";
 
 // document.onload = (e: Event) => {
-dayTicker(1000);
+startTicker(100);
 // };

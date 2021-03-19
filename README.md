@@ -27,10 +27,32 @@ Now, you can apply the real shadow only adding the `data-rs-kind` data tag with 
 
 You can configure the behavior of your realshadow using the below data tags.
 
-```html
-data-rs-kind="box" # Shadow kind data-rs-from-hour="06" # Sunset hour data-rs-to-hour="18" # Sunrise hour
-data-rs-distance="10" # Shadow distance data-rs-color="#0d1117" # Shadow color data-rs-blur-radius="2" # Shadow blur
-radius (in pixels) data-rs-hour="10:00" # Forced static hour
+```env
+data-rs-kind="box" # Shadow kind
+```
+
+```env
+data-rs-from-hour="06" # Sunset hour
+```
+
+```env
+data-rs-to-hour="18" # Sunrise hour
+```
+
+```env
+data-rs-distance="10" # Shadow distance
+```
+
+```env
+data-rs-color="#0d1117" # Shadow color
+```
+
+```env
+data-rs-blur-radius="2" # Shadow blur radius (in pixels)
+```
+
+```env
+data-rs-hour="10:00" # Forced static hour
 ```
 
 #### Shadow kind
@@ -45,3 +67,7 @@ text-shadow: [Official Documentation](https://developer.mozilla.org/en-US/docs/W
 ## Contribute
 
 I need to complete this documentation, if you want to help only make an issue or pull request. Thanks.
+
+```
+
+```

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../dist/index.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Recursive:wght@800;900&display=swap" rel="stylesheet" />
+        <title>Real Shadow Example</title>
+        <style>
+            body {
+                background-color: #e6ecff;
+            }
+
+            .text {
+                color: #4166ff;
+                font-family: "Recursive", sans-serif;
+                font-weight: 900;
+                font-size: 102px;
+                display: inline;
+                width: 100%;
+                text-align: center;
+                /* line-height: ; */
+            }
+
+            .text-hour {
+                color: #ff7441;
+                font-family: "Recursive", sans-serif;
+                font-weight: 900;
+                font-size: 68px;
+                display: inline;
+                /* width: 100%; */
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="display: flex; justify-content: center; flex-direction: column; height: 100vh">
+            <div class="box text" data-rs-kind="text" data-rs-distance="18" data-rs-color="#001523">REAL SHADOW</div>
+            <div
+                class="box text-hour"
+                data-rs-kind="text"
+                data-rs-hour="06:00"
+                data-rs-distance="10"
+                data-rs-color="#001523"
+            >
+                06:00
+            </div>
+            <div
+                class="box text-hour"
+                data-rs-kind="text"
+                data-rs-hour="09:00"
+                data-rs-distance="10"
+                data-rs-color="#001523"
+            >
+                09:00
+            </div>
+            <div
+                class="box text-hour"
+                data-rs-kind="text"
+                data-rs-hour="12:00"
+                data-rs-distance="10"
+                data-rs-color="#001523"
+            >
+                12:00
+            </div>
+            <div
+                class="box text-hour"
+                data-rs-kind="text"
+                data-rs-hour="15:00"
+                data-rs-distance="10"
+                data-rs-color="#001523"
+            >
+                15:00
+            </div>
+            <div
+                class="box text-hour"
+                data-rs-kind="text"
+                data-rs-hour="18:00"
+                data-rs-distance="10"
+                data-rs-color="#001523"
+            >
+                18:00
+            </div>
+        </div>
+        <script type="module" src="../dist/index.js"></script>
+    </body>
+</html>

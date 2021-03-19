@@ -15,7 +15,7 @@ exports.REAL_SHADOW_CLASS_NAME = "realshadow";
 exports.defaultStringPhi = "5";
 exports.defaultStringFromHour = "6";
 exports.defaultStringToHour = "18";
-exports.defaultStringColor = "black";
+exports.defaultStringColor = "#001523";
 exports.defaultStringBlurRadius = "0";
 exports.defaultStringShadowKind = "box";
 

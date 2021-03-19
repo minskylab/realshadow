@@ -1,3 +1,5 @@
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+(function (__dirname){(function (){
 module.exports =
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
@@ -39,9 +41,9 @@ exports.defaultStringColor = "black";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var shadows_1 = __nccwpck_require__(861);
-document.onload = function (e) {
-    shadows_1.dayTicker(1000);
-};
+// document.onload = (e: Event) => {
+shadows_1.dayTicker(1000);
+// };
 
 
 /***/ }),
@@ -56,25 +58,31 @@ var consts_1 = __nccwpck_require__(446);
 var datanames_1 = __nccwpck_require__(588);
 var constraintHour = function (hn, x0, x1) {
     if (hn < x0) {
-        return x0;
+        return [x0, true];
     }
     if (hn > x1) {
-        return x1;
+        return [x1, true];
     }
-    return hn / (x1 - x0);
+    return [hn / (x1 - x0), false];
 };
 var applyShadow = function (date, el, props) {
     var hours = date.getHours();
     var minutes = date.getMinutes();
-    var hn = (hours + minutes / 60) / 24;
-    hn = constraintHour(hn, props.fromHour / 24, props.toHour / 24);
-    var dx = -props.distance * Math.cos(Math.PI * hn);
-    var dy = -props.distance * Math.sin(Math.PI * hn);
-    el.style.setProperty("--shadow-dx", Math.floor(dx).toString() + "px");
-    el.style.setProperty("--shadow-dy", Math.floor(dy).toString() + "px");
-    el.style.setProperty("--shadow-blur", "0");
-    el.style.setProperty("--shadow-color", props.color);
-    console.log(dx, dy);
+    var _a = constraintHour((hours + minutes / 60) / 24, props.fromHour / 24, props.toHour / 24), hn = _a[0], outOfConstraint = _a[1];
+    var dx = -props.distance * Math.sin(Math.PI * hn);
+    var dy = -props.distance * Math.cos(Math.PI * hn);
+    // el.style.setProperty("--shadow-dx", Math.floor(dx).toString() + "px");
+    // el.style.setProperty("--shadow-dy", Math.floor(dy).toString() + "px");
+    // el.style.setProperty("--shadow-blur", "0");
+    // el.style.setProperty("--shadow-color", props.color);
+    console.log(hn, dx, dy);
+    if (outOfConstraint) {
+        el.style.boxShadow = "";
+    }
+    else {
+        el.style.boxShadow = Math.floor(dx) + "px " + Math.floor(dy) + "px " + "0" + " " + props.color;
+    }
+    // : var(--shadow-dx) var(--shadow-dy) var(--shadow-blur) var(--shadow-color);
     // el.style.boxShadow = "";
 };
 var calculateShadows = function (date) {
@@ -92,10 +100,18 @@ var calculateShadows = function (date) {
         // const k = el.dataset.key;
     }
 };
+var hour = 0;
 var dayTicker = function (intervalSeconds) {
     setTimeout(function () {
-        calculateShadows(new Date());
+        // const now = new Date();
+        var now = new Date("2021-03-17T" + (hour < 10 ? "0" + hour.toString() : hour.toString()) + ":00:00-05:00");
+        console.log(now);
+        calculateShadows(now);
         exports.dayTicker(intervalSeconds);
+        hour++;
+        if (hour === 24) {
+            hour = 0;
+        }
     }, intervalSeconds);
 };
 exports.dayTicker = dayTicker;
@@ -144,3 +160,5 @@ exports.dayTicker = dayTicker;
 /******/ 	return __nccwpck_require__(177);
 /******/ })()
 ;
+}).call(this)}).call(this,"/dist")
+},{}]},{},[1]);

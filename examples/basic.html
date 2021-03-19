@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../dist/index.css" />
+        <title>Real Shadow Example</title>
+        <style>
+            .box {
+                width: 100px;
+                height: 61.8px;
+                margin: 20px;
+            }
+
+            .red {
+                background-color: #ff0000;
+            }
+
+            .green {
+                background-color: #00ff00;
+            }
+
+            .blue {
+                background-color: #0000ff;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box red real-shadow" data-distance="5">HELLO WORLD (R)</div>
+        <div class="box blue real-shadow" data-distance="10">HELLO WORLD (G)</div>
+        <div class="box green real-shadow" data-distance="16">HELLO WORLD (B)</div>
+        <script type="module" src="../dist/index.js"></script>
+    </body>
+</html>

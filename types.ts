@@ -3,5 +3,6 @@ export interface ShadowProps {
     fromHour: number;
     toHour: number;
     distance: number;
+    blurRadius: number;
     color: string;
 }

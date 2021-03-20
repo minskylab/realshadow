@@ -67,7 +67,3 @@ text-shadow: [Official Documentation](https://developer.mozilla.org/en-US/docs/W
 ## Contribute
 
 I need to complete this documentation, if you want to help only make an issue or pull request. Thanks.
-
-```
-
-```

@@ -15,7 +15,7 @@ exports.defaultStringFromHour = "6";
 exports.defaultStringToHour = "18";
 exports.defaultStringColor = "#001523";
 exports.defaultStringBlurRadius = "0";
-exports.defaultStringShadowKind = "box";
+exports.defaultStringShadowKind = "drop";
 
 
 /***/ }),
@@ -91,6 +91,9 @@ var applyShadows = function (date, el, props) {
         case "text":
             el.style.textShadow = dx + "px " + dy + "px " + props.blurRadius + "px " + props.color;
             break;
+        case "drop":
+            el.style.filter = "drop-shadow(" + dx + "px " + dy + "px " + props.blurRadius + "px " + props.color + ")";
+            break;
         case "both":
             el.style.boxShadow = dx + "px " + dy + "px " + props.blurRadius + "px " + props.color;
             el.style.textShadow = dx + "px " + dy + "px " + props.blurRadius + "px " + props.color;
@@ -112,8 +115,8 @@ var calculateShadows = function (date) {
         var blurRadius = Number(el.getAttribute(datanames_1.dataBlurRadiusName) || constants_1.defaultStringBlurRadius);
         // const forcedCurrentHour: number = Number(el.getAttribute(dataForcedHourName) || defaultStringBlurRadius);
         var kindString = el.getAttribute(datanames_1.dataShadowKind) || constants_1.defaultStringShadowKind;
-        if (kindString !== "box" && kindString !== "text" && kindString != "both") {
-            kindString = "defaultStringShadowKind";
+        if (kindString !== "box" && kindString !== "text" && kindString !== "both" && kindString !== "drop") {
+            kindString = constants_1.defaultStringShadowKind;
         }
         var kind = kindString;
         var props = { phi: phi, fromHour: fromHour, toHour: toHour, distance: distance, color: color, blurRadius: blurRadius, kind: kind };

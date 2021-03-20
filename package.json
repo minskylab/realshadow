@@ -25,7 +25,7 @@
     },
     "scripts": {
         "build:js": "ncc build index.ts -o dist",
-        "build:browser": "browserify -p tinyify -o umd/index.js dist/index.js",
+        "build:browser": "browserify -p tinyify -o umd/index.min.js dist/index.js",
         "build": "yarn build:js && yarn build:browser",
         "start": "ncc run index.ts"
     },

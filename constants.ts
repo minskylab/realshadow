@@ -7,4 +7,4 @@ export const defaultStringFromHour: string = "6";
 export const defaultStringToHour: string = "18";
 export const defaultStringColor: string = "#001523";
 export const defaultStringBlurRadius: string = "0";
-export const defaultStringShadowKind: ShadowKind = "box";
+export const defaultStringShadowKind: ShadowKind = "drop";

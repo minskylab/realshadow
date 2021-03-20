@@ -8,4 +8,4 @@ export interface ShadowProps {
     kind: ShadowKind;
 }
 
-export type ShadowKind = "text" | "box" | "both";
+export type ShadowKind = "text" | "box" | "both" | "drop";

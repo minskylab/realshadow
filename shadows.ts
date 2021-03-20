@@ -59,6 +59,9 @@ const applyShadows = (date: Date, el: HTMLElement, props: ShadowProps) => {
         case "text":
             el.style.textShadow = `${dx}px ${dy}px ${props.blurRadius}px ${props.color}`;
             break;
+        case "drop":
+            el.style.filter = `drop-shadow(${dx}px ${dy}px ${props.blurRadius}px ${props.color})`;
+            break;
         case "both":
             el.style.boxShadow = `${dx}px ${dy}px ${props.blurRadius}px ${props.color}`;
             el.style.textShadow = `${dx}px ${dy}px ${props.blurRadius}px ${props.color}`;
@@ -86,8 +89,8 @@ const calculateShadows = (date: Date) => {
 
         let kindString: string = el.getAttribute(dataShadowKind) || defaultStringShadowKind;
 
-        if (kindString !== "box" && kindString !== "text" && kindString != "both") {
-            kindString = "defaultStringShadowKind";
+        if (kindString !== "box" && kindString !== "text" && kindString !== "both" && kindString !== "drop") {
+            kindString = defaultStringShadowKind;
         }
 
         const kind: ShadowKind = kindString as ShadowKind;

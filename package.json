@@ -1,6 +1,6 @@
 {
     "name": "@minskylab/realshadow",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "description": "A simple library to give shadows based on the current real time for any html element.",
     "main": "dist/index.js",
     "author": "Minsky",

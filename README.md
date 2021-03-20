@@ -1,6 +1,9 @@
 # Real Shadow
 
-Realshadow adds a real time based shadow for any HTML Element. It works with the current time calculating each `100mS`.
+Realshadow adds a real time based shadow for any HTML Element.
+It works with the current time calculating each `1 second` the shadow based on the current hour. You can see the below image for more details.
+
+![realshadow how it works](https://i.imgur.com/MPCmzGb.png)
 
 ## Demo
 
@@ -11,10 +14,10 @@ See this codepen: [https://codepen.io/bregydoc/pen/RwoXPVJ](https://codepen.io/b
 Only need to add this line at the end of your `body` tag:
 
 ```html
-<script type="text/javascript" src="https://unpkg.com/@minskylab/realshadow@0.2.1/umd/index.js"></script>
+<script src="https://unpkg.com/@minskylab/realshadow/umd/index.min.js" type="text/javascript"></script>
 ```
 
-Now, you can apply the real shadow only adding the `data-rs-kind` data tag with options `box|text|both`:
+Now, you can apply the real shadow only adding the `data-rs-kind` data tag with options `drop|box|text|both`:
 
 ### Basic Example
 
@@ -57,10 +60,11 @@ data-rs-hour="10:00" # Forced static hour
 
 #### Shadow kind
 
-The shadow kind: `box|text|both`.
+The shadow kind: `drop|box|text|both`.
 
 box-shadow: [Official Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow).
 text-shadow: [Official Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow).
+drop (filter): [Official Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/filter).
 
 ---
 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+        <title>Real Shadow | Dynamic Example</title>
+    </head>
+    <body class="flex flex-col justify-center h-screen">
+        <div
+            x-data="{ hourCount: 0, h: '0', m: '0', hour: '00:00' }"
+            x-init="
+                setInterval(()=>{
+                    hourCount += 10; 
+                    h = Math.floor((hourCount)/60/24)%24; 
+                    m = Math.floor((hourCount % (24*60))/24);
+                    hour = (h>9?`${h}`:`0${h}`) + ':' + (m>9?`${m}`:`0${m}`);
+                }, 5)"
+        >
+            <div
+                :class="{'bg-indigo-800': h > 18 || h < 6}"
+                class="transition bg-indigo-600 absolute top-0 left-0 w-screen h-screen"
+            />
+            <div
+                class="m-72 text-green-400 text-9xl font-sans font-extrabold antialiased"
+                x-bind:data-rs-hour="hour"
+                data-rs-kind="text"
+                x-text="hour"
+            />
+        </div>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+        <script src="https://unpkg.com/@minskylab/realshadow/umd/index.min.js" type="text/javascript"></script>
+    </body>
+</html>

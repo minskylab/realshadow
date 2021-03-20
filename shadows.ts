@@ -32,7 +32,7 @@ const constraintHour = (hn: number, x0: number, x1: number): [number, boolean] =
 };
 
 const applyBaseStyle = (el: HTMLElement) => {
-    el.style.transition = "box-shadow 1s, text-shadow 1s";
+    el.style.transition = "box-shadow 1s, text-shadow 1s, filter 1s";
 };
 
 const applyShadows = (date: Date, el: HTMLElement, props: ShadowProps) => {
@@ -43,7 +43,7 @@ const applyShadows = (date: Date, el: HTMLElement, props: ShadowProps) => {
     const h = (hours + minutes / 60) / 24;
     const [hn, outOfConstraint] = constraintHour(h, props.fromHour / 24, props.toHour / 24);
 
-    const dx = -props.distance * Math.sin(Math.PI * hn) * 0.5;
+    const dx = -props.distance * Math.sin(Math.PI * hn) * 0.75;
     const dy = -props.distance * Math.cos(Math.PI * hn);
 
     if (outOfConstraint) {

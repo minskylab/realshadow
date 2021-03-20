@@ -69,7 +69,7 @@ var constraintHour = function (hn, x0, x1) {
     return [hn / (x1 - x0), false];
 };
 var applyBaseStyle = function (el) {
-    el.style.transition = "box-shadow 1s, text-shadow 1s";
+    el.style.transition = "box-shadow 1s, text-shadow 1s, filter 1s";
 };
 var applyShadows = function (date, el, props) {
     var hours = date.getHours();
@@ -77,7 +77,7 @@ var applyShadows = function (date, el, props) {
     // 0 - 00:00, 1 - 23:59
     var h = (hours + minutes / 60) / 24;
     var _a = constraintHour(h, props.fromHour / 24, props.toHour / 24), hn = _a[0], outOfConstraint = _a[1];
-    var dx = -props.distance * Math.sin(Math.PI * hn) * 0.5;
+    var dx = -props.distance * Math.sin(Math.PI * hn) * 0.75;
     var dy = -props.distance * Math.cos(Math.PI * hn);
     if (outOfConstraint) {
         el.style.boxShadow = "";

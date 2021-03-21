@@ -7,7 +7,13 @@ It works with the current time calculating each `1 second` the shadow based on t
 
 ## Demo
 
-See this codepen: [https://codepen.io/bregydoc/pen/RwoXPVJ](https://codepen.io/bregydoc/pen/RwoXPVJ).
+### Static Showcase
+
+See this [codepen](https://codepen.io/bregydoc/pen/RwoXPVJ).
+
+### Dynamic with Tailwind & Alpine
+
+See this [codepen](https://codepen.io/bregydoc/pen/JjbgppJ).
 
 ## How to use
 

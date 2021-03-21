@@ -19,13 +19,14 @@
                 }, 5)"
         >
             <div
-                :class="{'bg-indigo-800': h > 18 || h < 6}"
                 class="transition bg-indigo-600 absolute top-0 left-0 w-screen h-screen"
+                :class="{'bg-indigo-800': h > 18 || h < 6}"
             />
             <div
                 class="m-72 text-green-400 text-9xl font-sans font-extrabold antialiased"
-                x-bind:data-rs-hour="hour"
                 data-rs-kind="text"
+                data-rs-blur-radius="10"
+                x-bind:data-rs-hour="hour"
                 x-text="hour"
             />
         </div>
